@@ -1,1 +1,1 @@
-Higher level programming Python projects
+Higher level programming Python tasks
