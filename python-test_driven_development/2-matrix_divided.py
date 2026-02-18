@@ -1,10 +1,6 @@
-
 #!/usr/bin/python3
-"""
-
-This module is composed by a function that divides the numbers of a matrix
-
-"""
+# 2-matrix_divided.py
+"""Module for matrix division."""
 
 
 def matrix_divided(matrix, div):
