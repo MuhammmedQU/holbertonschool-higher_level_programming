@@ -9,9 +9,14 @@ def add_integer(a, b=98):
     if not isinstance(b, (int, float)):
         raise TypeError("b must be an integer")
 
-    if a != a or a == float("inf") or a == float("-inf"):
-        raise TypeError("a must be an integer")
-    if b != b or b == float("inf") or b == float("-inf"):
-        raise TypeError("b must be an integer")
+    if isinstance(a, float):
+        if a != a or a in (float("inf"), float("-inf")):
+            raise TypeError("a must be an integer")
+        a = int(a)
 
-    return int(a) + int(b)
+    if isinstance(b, float):
+        if b != b or b in (float("inf"), float("-inf")):
+            raise TypeError("b must be an integer")
+        b = int(b)
+
+    return a + b
