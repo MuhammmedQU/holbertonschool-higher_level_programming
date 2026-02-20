@@ -3,12 +3,18 @@
 
 
 def text_indentation(text):
-    """prints formated text"""
+    """prints formatted text"""
 
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    for i in text:
-        print(i, end="")
-        if i in ".?:":
-            print("\n\n", end="")
+    for i in range(len(text)):
+
+        if text[i] == " " and i > 0 and text[i - 1] in ".?:":
+            continue
+
+        print(text[i], end="")
+
+        if text[i] in ".?:":
+            print()
+            print()
