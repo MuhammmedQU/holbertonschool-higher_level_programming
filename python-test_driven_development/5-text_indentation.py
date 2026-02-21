@@ -1,24 +1,31 @@
 #!/usr/bin/python3
-"""
-
-Module composed by a function that prints 2 new lines after ".?:" characters
-
-"""
+# 5-text_indentation.py
+# Brennan D Baraban <375@holbertonschool.com>
+"""Defines a text-indentation function."""
 
 
 def text_indentation(text):
-    """ Function that prints 2 new lines after ".?:" characters"""
+    """Print text with two new lines after each '.', '?', and ':'.
 
-    if type(text) is not str:
+    Args:
+        text (string): The text to print.
+    Raises:
+        TypeError: If text is not a string.
+    """
+    if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    s = text[:]
+    c = 0
+    while c < len(text) and text[c] == ' ':
+        c += 1
 
-    for ch in ".?:":
-        list_text = s.split(ch)
-        s = ""
-        for i in list_text:
-            i = i.strip(" ")
-            s = i + ch if s is "" else s + "\n\n" + i + ch
-
-    print(s[:-3], end="")
+    while c < len(text):
+        print(text[c], end="")
+        if text[c] == "\n" or text[c] in ".?:":
+            if text[c] in ".?:":
+                print("\n")
+            c += 1
+            while c < len(text) and text[c] == ' ':
+                c += 1
+            continue
+        c += 1
