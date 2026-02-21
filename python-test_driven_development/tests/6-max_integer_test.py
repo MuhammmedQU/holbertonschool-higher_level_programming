@@ -9,31 +9,35 @@ class TestMaxInteger(unittest.TestCase):
     """Test cases for max_integer"""
 
     def test_ordered_list(self):
-        """Test with ordered list"""
+        """Max at the end"""
         self.assertEqual(max_integer([1, 2, 3, 4]), 4)
 
     def test_unordered_list(self):
-        """Test with unordered list"""
+        """Max in the middle"""
         self.assertEqual(max_integer([3, 1, 4, 2]), 4)
 
+    def test_max_at_beginning(self):
+        """Max at the beginning"""
+        self.assertEqual(max_integer([9, 3, 2, 1]), 9)
+
     def test_negative_numbers(self):
-        """Test with negative numbers"""
+        """Negative numbers"""
         self.assertEqual(max_integer([-5, -2, -8, -1]), -1)
 
     def test_single_element(self):
-        """Test with single element"""
+        """Single element list"""
         self.assertEqual(max_integer([7]), 7)
 
     def test_empty_list(self):
-        """Test with empty list"""
+        """Empty list returns None"""
         self.assertIsNone(max_integer([]))
 
     def test_all_equal(self):
-        """Test when all numbers are equal"""
+        """All elements equal"""
         self.assertEqual(max_integer([5, 5, 5]), 5)
 
     def test_float_numbers(self):
-        """Test with float numbers"""
+        """Float numbers"""
         self.assertEqual(max_integer([1.2, 3.5, 2.1]), 3.5)
 
 
