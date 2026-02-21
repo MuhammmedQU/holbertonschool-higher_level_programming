@@ -11,12 +11,15 @@ def text_indentation(text):
     new_line = True
 
     for i in range(len(text)):
+
         if new_line and text[i] == " ":
             continue
+
         print(text[i], end="")
-        if text[i] in ".?:"and i != len(text) - 1:
-            print("")
-            print("")
+
+        if text[i] in ".?:":
+            print()
+            print()
             new_line = True
         else:
             new_line = False
