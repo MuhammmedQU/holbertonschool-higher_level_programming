@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """prints a text with 2 new lines after ., ? and :"""
 
-
 def text_indentation(text):
-    """print formatted text"""
+    """print formated text"""
 
     if not isinstance(text, str):
         raise TypeError("text must be a string")
@@ -15,11 +14,16 @@ def text_indentation(text):
         if new_line and text[i] == " ":
             continue
 
+        print(text[i], end="")
+
         if text[i] in ".?:":
-            print(text[i])
-            if i != len(text) - 1:
-                print()
-            new_line = True
+            # Sənin kodundakı əsas düzəliş:
+            # yalnız sonra non-space simvol qalırsa 2 newline çap elə
+            if text[i + 1:].strip():
+                print("")
+                print("")
+                new_line = True
+            else:
+                new_line = False
         else:
-            print(text[i], end="")
             new_line = False
