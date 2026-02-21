@@ -17,12 +17,9 @@ def text_indentation(text):
 
         print(text[i], end="")
 
-        if text[i] in ".?:":
-            if text[i + 1:].strip():
-                print("")
-                print("")
-                new_line = True
-            else:
-                new_line = False
+        if text[i] in ".?":
+            print("")
+            print("")
+            new_line = True
         else:
             new_line = False
