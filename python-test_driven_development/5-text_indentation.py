@@ -2,7 +2,6 @@
 """prints a text with 2 new lines after ., ? and :"""
 
 
-
 def text_indentation(text):
     """print formated text"""
 
