@@ -53,6 +53,12 @@ class Rectangle:
         result = ""
         for i in range(self.height):
             result += str(self.print_symbol) * self.width
-            if i != self.height - 1:
-                result += "\n"
-        return result
+            result += "\n"
+        return result.rstrip()
+
+    def __repr__(self):
+        return "Rectangle({}, {})".format(self.width, self.height)
+
+    def __del__(self):
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
