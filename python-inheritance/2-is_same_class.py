@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-"""Class that inherits from another class"""
+"""Function that checks if object is exactly an instance of a class"""
+
 
 def is_same_class(obj, a_class):
-    """Returns True if the object is exactly"""
+    """Return True if obj is exactly an instance of a_class"""
     return type(obj) == a_class
