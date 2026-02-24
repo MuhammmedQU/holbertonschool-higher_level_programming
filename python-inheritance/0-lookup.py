@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-"""Module that defines MyList class"""
+"""Defines an object attribute lookup function."""
 
 
-class MyList(list):
-    """Class that inherits from list"""
-
-    def print_sorted(self):
-        """Prints the list in ascending sorted order"""
-        print(sorted(self))
+def lookup(obj):
+    """Return a list of an object's available attributes."""
+    return (dir(obj))
