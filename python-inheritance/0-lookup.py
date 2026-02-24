@@ -1,7 +1,10 @@
 #!/usr/bin/python3
-"""Module that defines lookup function"""
+"""Module that defines MyList class"""
 
 
-def lookup(obj):
-    """Returns the list of available attributes and methods of an object"""
-    return dir(obj)
+class MyList(list):
+    """Class that inherits from list"""
+
+    def print_sorted(self):
+        """Prints the list in ascending sorted order"""
+        print(sorted(self))
