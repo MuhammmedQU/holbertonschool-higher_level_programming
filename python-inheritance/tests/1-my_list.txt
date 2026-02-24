@@ -9,8 +9,6 @@ This module defines a class ``MyList`` that inherits from ``list``.
 Instantiation
 =============
 
-``MyList`` can be created like a normal list.
-
 ::
 
     >>> MyList = __import__('1-my_list').MyList
@@ -18,30 +16,25 @@ Instantiation
     >>> print(my_list)
     []
 
-Elements can be added using list methods.
+Usage
+=====
+
+Elements can be added like a normal list.
 
 ::
 
     >>> my_list.append(1)
     >>> my_list.append(4)
     >>> my_list.append(2)
-    >>> print(my_list)
-    [1, 4, 2]
-
-print_sorted Method
-===================
-
-``MyList`` implements the public instance method
-``print_sorted(self)``.
-
-The method prints the list in ascending sorted order.
-
-::
-
     >>> my_list.append(3)
     >>> my_list.append(5)
     >>> print(my_list)
     [1, 4, 2, 3, 5]
+
+print_sorted Method
+===================
+
+The method prints the list in ascending sorted order.
 
 ::
 
@@ -55,13 +48,14 @@ The original list is not modified.
     >>> print(my_list)
     [1, 4, 2, 3, 5]
 
-Calling the method on an empty list prints an empty list.
+Works with empty lists.
 
 ::
 
     >>> empty = MyList()
     >>> empty.print_sorted()
     []
+
 Sorting also works with negative numbers.
 
 ::
