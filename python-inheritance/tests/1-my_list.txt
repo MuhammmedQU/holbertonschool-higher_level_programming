@@ -1,0 +1,64 @@
+# 1-my_list.txt
+
+=======================
+How to Use 1-my_list.py
+=======================
+
+This module defines a class ``MyList`` that inherits from ``list``.
+
+Instantiation
+=============
+
+``MyList`` can be created like a normal list.
+
+::
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> print(my_list)
+    []
+
+Elements can be added using list methods.
+
+::
+
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> print(my_list)
+    [1, 4, 2]
+
+print_sorted Method
+===================
+
+``MyList`` implements the public instance method
+``print_sorted(self)``.
+
+The method prints the list in ascending sorted order.
+
+::
+
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+::
+
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+The original list is not modified.
+
+::
+
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+Calling the method on an empty list prints an empty list.
+
+::
+
+    >>> empty = MyList()
+    >>> empty.print_sorted()
+    []
