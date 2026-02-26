@@ -1,5 +1,6 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Module that contains the function inherits_from"""
+
 
 
 def inherits_from(obj, a_class):
