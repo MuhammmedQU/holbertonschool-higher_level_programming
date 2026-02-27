@@ -4,17 +4,16 @@ Test for 7-base_geometry.py
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-# Instantiation without arguments
+# Instantiation
 >>> bg = BaseGeometry()
 
-# Instantiation with argument (should fail)
 >>> bg = BaseGeometry(None)
 Traceback (most recent call last):
 ...
 TypeError: BaseGeometry() takes no arguments
 
 
-# Test area()
+# area()
 >>> bg = BaseGeometry()
 >>> bg.area()
 Traceback (most recent call last):
@@ -22,60 +21,60 @@ Traceback (most recent call last):
 Exception: area() is not implemented
 
 
-# Valid integer (should pass silently)
+# integer_validator() - missing arguments
+>>> bg.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+>>> bg.integer_validator("age")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+
+# Valid integer
 >>> bg.integer_validator("age", 1)
 
 
-# Not integer - string
+# Not integer cases
 >>> bg.integer_validator("age", "4")
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
-
-# Not integer - tuple
 >>> bg.integer_validator("age", (4,))
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
-
-# Not integer - list
 >>> bg.integer_validator("age", [3])
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
-
-# Not integer - bool
 >>> bg.integer_validator("age", True)
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
-
-# Not integer - set
 >>> bg.integer_validator("age", {3, 4})
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
-
-# Not integer - None
 >>> bg.integer_validator("age", None)
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
 
-# Zero
+# Zero and negative
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
 ...
 ValueError: age must be greater than 0
 
-
-# Negative
 >>> bg.integer_validator("age", -4)
 Traceback (most recent call last):
 ...
