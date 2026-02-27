@@ -1,55 +1,33 @@
 =============================
-How to Use 7-base_geometry.py
+Test for 7-base_geometry.py
 =============================
 
-This module defines a base class called BaseGeometry.
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
 
-Instantiation
-=============
+# Test area()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
 
-BaseGeometry has no attributes.
-So it is created without any arguments.
+# Valid integer
+>>> bg.integer_validator("my_int", 5)
 
-Example:
+# Not integer
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
 
-    BaseGeometry = __import__('7-base_geometry').BaseGeometry
-    bg = BaseGeometry()
-    type(bg)
+# Zero value
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+...
+ValueError: age must be greater than 0
 
-Result:
-
-    <class '7-base_geometry.BaseGeometry'>
-
-If you try to create it with arguments, it will raise a TypeError.
-
-Methods
-=======
-
-BaseGeometry has two methods:
-
-1) area(self)
-
-This method is not implemented.
-If you call it, it raises:
-
-    Exception: area() is not implemented
-
-
-2) integer_validator(self, name, value)
-
-This method checks the value.
-
-- name: name of the variable
-- value: value to check
-
-If value is not an integer:
-    TypeError: <name> must be an integer
-
-If value is less than or equal to 0:
-    ValueError: <name> must be greater than 0
-
-If value is a valid integer and greater than 0:
-    The method does nothing.
-
-Both name and value must be given.
-Otherwise, Python raises TypeError.
+# Negative value
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+...
+ValueError: distance must be greater than 0
