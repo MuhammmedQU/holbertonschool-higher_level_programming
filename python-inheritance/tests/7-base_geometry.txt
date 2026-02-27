@@ -1,8 +1,82 @@
-In fact, any arguments supplied to an instantiation of ``BaseGeometry`` results
-in a TypeError.
+=============================
+Test for 7-base_geometry.py
+=============================
 
-::
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-    >>> bg = BaseGeometry(None)
-    Traceback (most recent call last):
-    TypeError: BaseGeometry() takes no arguments
+# Instantiation without arguments
+>>> bg = BaseGeometry()
+
+# Instantiation with argument (should fail)
+>>> bg = BaseGeometry(None)
+Traceback (most recent call last):
+...
+TypeError: BaseGeometry() takes no arguments
+
+
+# Test area()
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+
+# Valid integer (should pass silently)
+>>> bg.integer_validator("age", 1)
+
+
+# Not integer - string
+>>> bg.integer_validator("age", "4")
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+
+# Not integer - tuple
+>>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+
+# Not integer - list
+>>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+
+# Not integer - bool
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+
+# Not integer - set
+>>> bg.integer_validator("age", {3, 4})
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+
+# Not integer - None
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+
+# Zero
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+...
+ValueError: age must be greater than 0
+
+
+# Negative
+>>> bg.integer_validator("age", -4)
+Traceback (most recent call last):
+...
+ValueError: age must be greater than 0
