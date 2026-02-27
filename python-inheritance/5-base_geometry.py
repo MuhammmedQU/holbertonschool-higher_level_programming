@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+"""Gemerate a class"""
+
+
+class BaseGeometry:
+    """BaseGeometry class"""
+    pass
