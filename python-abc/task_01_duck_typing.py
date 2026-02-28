@@ -16,17 +16,18 @@ class Shape(ABC):
         pass
 
 
+import math
+
 class Circle(Shape):
-    """Circle shape"""
 
     def __init__(self, radius):
         self.radius = radius
 
     def area(self):
-        return 3.141592653589793 * (self.radius ** 2)
+        return math.pi * (self.radius ** 2)
 
     def perimeter(self):
-        return 2 * 3.141592653589793 * self.radius
+        return 2 * math.pi * self.radius
 
 
 class Rectangle(Shape):
