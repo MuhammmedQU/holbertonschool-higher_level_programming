@@ -53,3 +53,4 @@ def shape_info(shape):
     """Print shape info using duck typing"""
     print("Area: {}".format(shape.area()))
     print("Perimeter: {}".format(shape.perimeter()))
+
