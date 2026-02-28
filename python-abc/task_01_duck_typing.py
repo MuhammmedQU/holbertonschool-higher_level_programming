@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Module that defines Shape abstract class and its subclasses"""
 
 from abc import ABC, abstractmethod
@@ -9,10 +9,12 @@ class Shape(ABC):
 
     @abstractmethod
     def area(self):
+        """Calculate area"""
         pass
 
     @abstractmethod
     def perimeter(self):
+        """Calculate perimeter"""
         pass
 
 
@@ -44,5 +46,6 @@ class Rectangle(Shape):
 
 
 def shape_info(shape):
+    """Print area and perimeter using duck typing"""
     print("Area: {}".format(shape.area()))
     print("Perimeter: {}".format(shape.perimeter()))
