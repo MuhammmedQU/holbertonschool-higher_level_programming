@@ -2,7 +2,6 @@
 """Module that defines Shape abstract class and its subclasses"""
 
 from abc import ABC, abstractmethod
-import math
 
 
 class Shape(ABC):
@@ -10,12 +9,12 @@ class Shape(ABC):
 
     @abstractmethod
     def area(self):
-        """Calculate area of the shape"""
+        """Calculate area"""
         pass
 
     @abstractmethod
     def perimeter(self):
-        """Calculate perimeter of the shape"""
+        """Calculate perimeter"""
         pass
 
 
@@ -26,12 +25,12 @@ class Circle(Shape):
         self.__radius = radius
 
     def area(self):
-        """Return area of the circle"""
-        return math.pi * (self.__radius ** 2)
+        """Return area of circle"""
+        return 3.141592653589793 * (self.__radius ** 2)
 
     def perimeter(self):
-        """Return perimeter of the circle"""
-        return 2 * math.pi * self.__radius
+        """Return perimeter of circle"""
+        return 2 * 3.141592653589793 * self.__radius
 
 
 class Rectangle(Shape):
@@ -42,15 +41,15 @@ class Rectangle(Shape):
         self.__height = height
 
     def area(self):
-        """Return area of the rectangle"""
+        """Return area of rectangle"""
         return self.__width * self.__height
 
     def perimeter(self):
-        """Return perimeter of the rectangle"""
+        """Return perimeter of rectangle"""
         return 2 * (self.__width + self.__height)
 
 
 def shape_info(shape):
-    """Print area and perimeter of a shape (duck typing)"""
+    """Print shape info using duck typing"""
     print("Area: {}".format(shape.area()))
     print("Perimeter: {}".format(shape.perimeter()))
