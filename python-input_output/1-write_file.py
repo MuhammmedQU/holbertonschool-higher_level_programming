@@ -6,6 +6,4 @@ def write_file(filename="", text=""):
     """Writes a string to a text file."""
     with open(filename, 'w') as f:
         f.write(text)
-
-        count = len(text)
-    return count 
+        return len(text)
