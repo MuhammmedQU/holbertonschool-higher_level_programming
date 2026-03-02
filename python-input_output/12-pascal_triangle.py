@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""pascal triangle """
+"""pascal triangle."""
  
 
 def pascal_triangle(n):
+    """Generate the first n rows of Pascal's triangle."""
     triangle = []
     for i in range(n):
         row = [1] * (i + 1)
