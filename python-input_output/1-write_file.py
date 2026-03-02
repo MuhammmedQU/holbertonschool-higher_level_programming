@@ -3,9 +3,9 @@
 
 
 def write_file(filename="", text=""):
-    """Writes a string to a text file and returns the number of characters written."""
+    """Writes a string to a text file."""
     with open(filename, 'w') as f:
         f.write(text)
 
         count = len(text)
-        return count 
+    return count 
