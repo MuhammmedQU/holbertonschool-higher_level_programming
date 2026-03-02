@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """pascal triangle."""
- 
 
 def pascal_triangle(n):
     """Generate the first n rows of Pascal's triangle."""
