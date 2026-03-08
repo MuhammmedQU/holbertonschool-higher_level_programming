@@ -13,8 +13,8 @@ jwt = JWTManager(app)
 
 
 users = {
-    "user1": {"password": generate_password_hash("123"), "role": "user"},
-    "admin": {"password": generate_password_hash("456"), "role": "admin"}
+    "user1": {"password": generate_password_hash("password"), "role": "user"},
+    "admin1": {"password": generate_password_hash("password"), "role": "admin"}
 }
   
 @jwt.unauthorized_loader
