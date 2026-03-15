@@ -25,8 +25,9 @@ def main():
 
     cursor.execute("SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id ASC", (statename,))
 
-    for row in cursor.fetchall():
-        print(row, end=",")
+    rows = cursor.fetchall()
+    cities = [row[0] for row in rows]
+    print(", ".join(cities))
 
     cursor.close()
     db.close()
