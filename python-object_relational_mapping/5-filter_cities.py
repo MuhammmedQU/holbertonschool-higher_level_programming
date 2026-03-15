@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-"""Simple script to read states from MySQL database"""
+"""List all cities of a state from database"""
 
 import MySQLdb
 import sys
 
 
 def main():
-    """Connect to MySQL and fetch states"""
+    """Connect to MySQL and fetch cities"""
 
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    statename = sys.argv[4]
+    state_name = sys.argv[4]
 
     db = MySQLdb.connect(
         host="localhost",
@@ -23,15 +23,22 @@ def main():
 
     cursor = db.cursor()
 
-    cursor.execute("SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id ASC", (statename,))
+    query = """
+    SELECT cities.name
+    FROM cities
+    JOIN states ON cities.state_id = states.id
+    WHERE states.name = %s
+    ORDER BY cities.id ASC
+    """
 
+    cursor.execute(query, (state_name,))
     rows = cursor.fetchall()
-    cities = [row[0] for row in rows]
-    print(", ".join(cities))
+
+    print(", ".join([row[0] for row in rows]))
 
     cursor.close()
     db.close()
 
 
 if __name__ == "__main__":
-    main() 
+    main()
