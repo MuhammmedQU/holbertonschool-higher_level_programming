@@ -1,25 +1,27 @@
 #!/usr/bin/python3
-"""Lists states matching a given name."""
+"""Module for Selecting states where name equals argument"""
 
-import MySQLdb
-import sys
+if __name__ == '__main__':
+    from sys import argv
+    import MySQLdb
 
-
-if __name__ == "__main__":
-
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=sys.argv[1],
-                         passwd=sys.argv[2],
-                         db=sys.argv[3])
+    db = MySQLdb.connect(
+        user=argv[1],
+        password=argv[2],
+        database=argv[3]
+    )
 
     cursor = db.cursor()
 
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY states.id ASC"
-    cursor.execute(query.format(sys.argv[4]))
+    cursor.execute("SELECT * \
+                    FROM `states` \
+                    WHERE BINARY `name` = '{}' \
+                    ORDER BY id".format(argv[4]))
 
-    rows = cursor.fetchall()
-    for row in rows:
-        print(row)
+    for state in cursor.fetchall():
+        print(state)
 
-    cursor.close()
-    db.close()
+    if cursor:
+        cursor.close()
+    if db:
+        db.close()
