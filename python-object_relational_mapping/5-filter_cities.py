@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""List all cities of a state from database"""
+"""List all cities of a state"""
 
 import MySQLdb
 import sys
 
 
 def main():
-    """Connect to MySQL and fetch cities"""
+    """Fetch cities by state name"""
 
     username = sys.argv[1]
     password = sys.argv[2]
@@ -24,11 +24,12 @@ def main():
     cursor = db.cursor()
 
     query = """
-    SELECT cities.name
+    SELECT name
     FROM cities
-    JOIN states ON cities.state_id = states.id
-    WHERE states.name = %s
-    ORDER BY cities.id ASC
+    WHERE state_id = (
+        SELECT id FROM states WHERE name = %s
+    )
+    ORDER BY id ASC
     """
 
     cursor.execute(query, (state_name,))
