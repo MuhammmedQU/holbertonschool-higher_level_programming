@@ -5,8 +5,8 @@ import MySQLdb
 import sys
 
 
-if __name__ == "__main__":
-    """Connect to MySQL database and display states."""
+def main():
+    """Connects to MySQL database and prints all states."""
 
     db = MySQLdb.connect(
         host="localhost",
@@ -25,3 +25,7 @@ if __name__ == "__main__":
 
     cursor.close()
     db.close()
+
+
+if __name__ == "__main__":
+    main()
