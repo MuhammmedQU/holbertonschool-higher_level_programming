@@ -18,18 +18,13 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    # SQL sorğusu: 'N' ilə başlayanları seçir və ID-yə görə sıralayır.
-    # BINARY açar sözü böyük/kiçik hərf fərqini (N vs n) dəqiqləşdirir.
     query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
     cursor.execute(query)
 
-    # Bütün uyğun sətirləri götürürük
     rows = cursor.fetchall()
 
-    # Nəticələri çap edirik
     for row in rows:
         print(row)
 
-    # Bağlantıları bağlayırıq
     cursor.close()
     db.close()
