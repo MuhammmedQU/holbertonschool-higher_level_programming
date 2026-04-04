@@ -16,4 +16,21 @@ def home():
         with open("products.json", "r") as f:
             products = json.load(f)
 
+    elif source == "csv":
+        with open("products.csv", "r") as f:
+            reader = csv.DictReader(f)
+            products = list(reader)
+
+    if id:
+        new_products = []
+
+        for p in products:
+            if str(p["id"]) == id:
+                new_products.append(p)
+
+    if not new_products:
+        return render_template("product_display.html", error="Product not found")
+
+    products = new_products
+
     return render_template("product_display.html", products=products)
